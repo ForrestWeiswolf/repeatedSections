@@ -14,5 +14,5 @@ repeatedSections = countSectionRepeats(fileText, int(sys.argv[2]))
 repeatedSections = [(sect, repeatedSections[sect]) for sect in repeatedSections]
 repeatedSections = sorted(repeatedSections, key=lambda s: len(s[0]) * repeatedSections[s[1]])
 
-for i in range(len(repeatedSections)):
+for i in range(min(len(repeatedSections), int(sys.argv[3]))):
   print(repeatedSections[i][0])

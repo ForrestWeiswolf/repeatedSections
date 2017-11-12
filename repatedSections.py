@@ -31,6 +31,9 @@ if(len(toRemove) > 0):
   toRemove = re.compile('[' + toRemove + ']')
   fileText = toRemove.sub('', fileText)
 
+if(args.c):
+  fileText = fileText.lower()
+
 repeatedSections = countSectionRepeats(fileText, args.min)
 repeatedSections = [(sect, repeatedSections[sect]) for sect in repeatedSections]
 repeatedSections = sorted(repeatedSections, key=lambda s: len(s[0]) * repeatedSections[s[1]])
